@@ -8,66 +8,40 @@ import java.util.Arrays;
 public class Calculation {
     public static void main(String[] args) {
 
-        int[] arrayInt = {11, 4, 3, 25, -6, 12, 7, 10, 9, -9};
-        double[] arrayDouble = {3.0, -2.6, 5.4, -9.7, 4.6, 9.1, 15.0, 22.1, -6.4, 1.8};
+        int[] arrayInt = {11, -4, -3, 25, 6, 12, -7, 10, 9, -7};
+        double[] arrayDouble = {-3.0, 2.6, -5.4, 9.8, 12.2, 9.1, 15.0, 22.1, -6.4, 1.7};
 
-        Calculation sumInt = new Calculation();
-        sumInt.sum(arrayInt);
-
-        Calculation sumDouble = new Calculation();
-        sumDouble.sum(arrayDouble);
-
-        Calculation minInt = new Calculation();
-        minInt.min(arrayInt);
-
-        Calculation minDouble = new Calculation();
-        minDouble.min(arrayDouble);
-
-        Calculation maxInt = new Calculation();
-        maxInt.max(arrayInt);
-
-        Calculation maxDouble = new Calculation();
-        maxDouble.max(arrayDouble);
-
-        Calculation maxPositiveInt = new Calculation();
-        maxPositiveInt.maxPositive(arrayInt);
-
-        Calculation maxPositiveDouble = new Calculation();
-        maxPositiveDouble.maxPositive(arrayDouble);
-
-        Calculation multiplInt = new Calculation();
-        multiplInt.multiplication(arrayInt);
-
-        Calculation multiplDouble = new Calculation();
-        multiplDouble.multiplication(arrayDouble);
-
-        Calculation modulusInt = new Calculation();
-        modulusInt.modulus(arrayInt);
-
-        Calculation modulDouble = new Calculation();
-        modulDouble.modulus(arrayDouble);
-
-        Calculation secondLargestInt = new Calculation();
-        secondLargestInt.secondLargest(arrayInt);
-
-        Calculation secondLargestDouble = new Calculation();
-        secondLargestDouble.secondLargest(arrayDouble);
+        Calculation calculation = new Calculation();
+        calculation.sum(arrayInt);
+        calculation.sum(arrayDouble);
+        calculation.min(arrayInt);
+        calculation.min(arrayDouble);
+        calculation.max(arrayInt);
+        calculation.max(arrayDouble);
+        calculation.maxPositive(arrayInt);
+        calculation.maxPositive(arrayDouble);
+        calculation.multiplication(arrayInt);
+        calculation.multiplication(arrayDouble);
+        calculation.modulus(arrayInt);
+        calculation.modulus(arrayDouble);
+        calculation.secondLargest(arrayInt);
+        calculation.secondLargest(arrayDouble);
     }
 
     public void sum(int[] array) {
-        int sum = 0;
+        int sumOfArray = 0;
         for (int i = 0; i < array.length; i++) {
-            sum += array[i];
+            sumOfArray += array[i];
         }
-        System.out.println("Сумма массива целых чисел = " + sum);
+        System.out.println("Сумма массива целых чисел = " + sumOfArray);
     }
 
     public void sum(double[] array) {
-        double sum = 0;
+        double sumOfArray = 0;
         for (int i = 0; i < array.length; i++) {
-            sum += array[i];
+            sumOfArray += array[i];
         }
-        System.out.println("Сумма массива дробных чисел = " + sum);
+        System.out.println("Сумма массива дробных чисел = " + sumOfArray);
     }
 
     public void min(int[] array) {
@@ -82,7 +56,7 @@ public class Calculation {
 
     public void min(double[] array) {
         double tmp = array[0];
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 1; i < array.length; i++) {
             if (tmp > array[i]) {
                 tmp = array[i];
             }
@@ -113,60 +87,60 @@ public class Calculation {
     public void maxPositive(int[] array) {
         int tmp = array[0];
         for (int i = 1; i < array.length; i++) {
-            if (array[i] < 0) continue;
             if (tmp < array[i]) {
                 tmp = array[i];
             }
         }
-        System.out.println("Максимальный позитивный элемент массива целых чисел = " + tmp);
+        if (tmp >= 0) {
+            System.out.println("Максимальное плюсовое число массива целых чисел = " + tmp);
+        } else System.out.println("В данном массиве нет плюсовых чисел!!!");
     }
 
     public void maxPositive(double[] array) {
         double tmp = array[0];
         for (int i = 1; i < array.length; i++) {
-            if (array[i] < 0) continue;
             if (tmp < array[i]) {
                 tmp = array[i];
             }
         }
-        System.out.println("Максимальный позитивный элемент массива дробных чисел = " + tmp);
+        if (tmp >= 0) {
+            System.out.println("Максимальное плюсовое число массива дробных чисел = " + tmp);
+        } else System.out.println("В данном массиве нет плюсовых чисел!!!");
     }
 
     public void multiplication(int[] array) {
-        int multi = 1;
+        long multiOfArray = 1;
         for (int i = 0; i < array.length; i++) {
-            multi *= array[i];
+            multiOfArray *= array[i];
         }
-        System.out.println("Результат умножения элементов массива целых чисел = " + multi);
+        System.out.println("Результат умножения элементов массива целых чисел = " + multiOfArray);
     }
 
     public void multiplication(double[] array) {
-        double multi = 1;
+        double multiOfArray = 1;
         for (int i = 0; i < array.length; i++) {
-            multi *= array[i];
+            multiOfArray *= array[i];
         }
-        System.out.println("Результат умножения элементов массива целых чисел = " + multi);
+        System.out.println("Результат умножения элементов массива целых чисел = " + multiOfArray);
     }
 
     public void modulus(int[] array) {
-        int modul = array[0] % array[array.length - 1];
-        System.out.println("Модуль первого и последнего элемента массива целых чисел = " + modul);
+        System.out.println("Первый элемент по модулю масива целых чисел = " + Math.abs(array[0]));
+        System.out.println("Последний элемент по модулю масива целых чисел = " + Math.abs(array[array.length - 1]));
     }
 
     public void modulus(double[] array) {
-        double modul = array[0] % array[array.length - 1];
-        System.out.println("Модуль первого и последнего элемента массива дробных чисел = " + modul);
+        System.out.println("Первый элемент по модулю масива дробных чисел = " + Math.abs(array[0]));
+        System.out.println("Последний элемент по модулю масива дробных чисел = " + Math.abs(array[array.length - 1]));
     }
 
     public void secondLargest(int[] array) {
         Arrays.sort(array);
-        //System.out.println(Arrays.toString(array));
         System.out.println("Второй по величине элемент массива целых чисел = " + array[array.length - 2]);
     }
 
     public void secondLargest(double[] array) {
         Arrays.sort(array);
-        //System.out.println(Arrays.toString(array));
         System.out.println("Второй по величине элемент массива дробных чисел = " + array[array.length - 2]);
     }
 }
