@@ -4,6 +4,8 @@ package com.victor.practice.modul02.task022;
  * Created by Sonikb on 30.01.2017.
  */
 public class BankExample {
+    static final double COMMISION = 1.05;
+
     public static void main(String[] args) {
 
         double balance1 = 100;
@@ -20,10 +22,9 @@ public class BankExample {
     }
 
     public void withdraw(double balance, double withdraw) {
-        double commision = 1.05;
         double result, amountOfCommission;
-        amountOfCommission = (withdraw * commision) - withdraw;
-        result = balance - (withdraw * commision);
+        amountOfCommission = (withdraw * COMMISION) - withdraw;
+        result = balance - (withdraw * COMMISION);
         if (result < 0) {
             System.out.println("NO");
             result = balance;
