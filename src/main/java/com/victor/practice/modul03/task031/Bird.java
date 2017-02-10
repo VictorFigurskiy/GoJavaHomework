@@ -13,10 +13,11 @@ public class Bird {
 
     public Bird(String name) {
         this.name = name;
-        System.out.println(name);
+        System.out.println("I am "+name);
     }
 
     void sing() {
         System.out.println(SONG);
+        System.out.println();
     }
 }
