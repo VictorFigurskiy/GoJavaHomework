@@ -7,27 +7,22 @@ import java.util.Date;
  */
 public class Solution {
     public static void main(String[] args) {
-        Date date1 = new Date();
-        Date date2 = new Date(1486867791851L);
 
-        Course javaCore = new Course(date1, "Java Core");
-        Course javaEE = new Course(date2, "Java EE");
+        Course javaCore = new Course(new Date(), "Java Core");
+        Course javaEE = new Course(new Date(1486867791851L), "Java EE");
         Course goStart = new Course("Go Start", 16, "Aleksander Jeckovich");
         Course goQA = new Course("GoQA", 42, "Nikolay Vishnevskiy");
         Course html = new Course("HTML", 68, "Fedor Bolshoy");
 
-        Course[] arrayCourse1 = new Course[]{javaCore, javaEE, goStart, goQA, html};
-        Course[] arrayCourse2 = {javaCore, javaEE};
-
         Student student1 = new Student("Gerodot", "Borov", 001);
-        Student student2 = new Student("Shevchenko", arrayCourse1);
+        Student student2 = new Student("Shevchenko", new Course[]{javaCore, javaEE, goStart, goQA, html});
 
         CollegeStudent student3 = new CollegeStudent("Gregoriy", "Skovoroda", 001);
-        CollegeStudent student4 = new CollegeStudent("Shakira", arrayCourse2);
-        CollegeStudent student5 = new CollegeStudent("Anton", "Chubarov", 002, "Bursa", 180, 0564054031160153L, new Course[]{javaCore, javaEE, goStart, goQA}, 24);
+        CollegeStudent student4 = new CollegeStudent("Shakira", new Course[]{javaCore, javaEE});
+        CollegeStudent student5 = new CollegeStudent("Bursa", 180, 0564054031160153L);
 
         SpecialStudent student6 = new SpecialStudent("Vasya", "Kulibin", 002);
         SpecialStudent student7 = new SpecialStudent("Harvard", new Course[]{html, goStart});
-        SpecialStudent student8 = new SpecialStudent("Georgiy", "Chubarov", 002, "Bursa", 175, 0564054031160153L, new Course[]{javaCore, javaEE, goStart, goQA}, 22, 16541651065160165L);
+        SpecialStudent student8 = new SpecialStudent(16541651065160165L);
     }
 }

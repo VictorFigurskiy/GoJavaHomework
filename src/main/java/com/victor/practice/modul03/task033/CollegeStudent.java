@@ -16,13 +16,15 @@ public class CollegeStudent extends Student {
         super(lastName, coursesTaken);
     }
 
-    public CollegeStudent(String firstName, String lastName, int group, String collegeName, int rating, long id, Course[] coursesTaken, int age) {
-        super(firstName, lastName, group);
+    public CollegeStudent(String collegeName, int rating, long id) {
+        super();
         this.collegeName = collegeName;
         this.rating = rating;
         this.id = id;
-        setCoursesTaken(coursesTaken);
-        setAge(age);
+    }
+
+    public CollegeStudent() {
+        super();
     }
 
     public String getCollegeName() {
