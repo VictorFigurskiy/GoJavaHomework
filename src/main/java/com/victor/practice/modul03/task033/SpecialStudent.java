@@ -11,12 +11,12 @@ public class SpecialStudent extends CollegeStudent {
         super(firstName, lastName, group);
     }
 
-    public SpecialStudent(String collegeName, int rating, long id) {
-        super(collegeName, rating, id);
+    public SpecialStudent(String lastName, Course[] coursesTaken) {
+        super(lastName, coursesTaken);
     }
 
-    public SpecialStudent(long secretKey) {
-        super();
+    public SpecialStudent(String firstName, String lastName, int group, String collegeName, int rating, long id, Course[] coursesTaken, int age, long secretKey) {
+        super(firstName, lastName, group, collegeName, rating, id, coursesTaken, age);
         this.secretKey = secretKey;
     }
 

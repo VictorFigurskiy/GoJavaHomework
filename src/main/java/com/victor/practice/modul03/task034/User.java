@@ -27,7 +27,7 @@ public class User {
     }
 
     void withdraw(int summ) {
-        double tmp = -1;
+        double tmp = 0;
         if (summ >= 1000) {
             tmp = balance - (summ * COMMISION1);
         }
@@ -35,9 +35,8 @@ public class User {
             tmp = balance - (summ * COMMISION2);
         }
         if (tmp < 0) {
-            System.out.println("Сумма снятия превышает сумму баланса!");
-            balance = tmp;
-        } else  balance = tmp;
+            System.out.println("\nСумма снятия превышает сумму баланса!");
+        } else balance = tmp;
     }
 
     void show() {

@@ -22,12 +22,12 @@ public class Solution {
         Student student1 = new Student("Gerodot", "Borov", 001);
         Student student2 = new Student("Shevchenko", arrayCourse1);
 
-        CollegeStudent student3 = new CollegeStudent("Gregoriy","Skovoroda",001);
-        CollegeStudent student4 = new CollegeStudent("Shakira",arrayCourse2);
-        CollegeStudent student5=new CollegeStudent("Bursitet",5,00213215504650444L);
+        CollegeStudent student3 = new CollegeStudent("Gregoriy", "Skovoroda", 001);
+        CollegeStudent student4 = new CollegeStudent("Shakira", arrayCourse2);
+        CollegeStudent student5 = new CollegeStudent("Anton","Chubarov",002,"Bursa",180,0564054031160153L,new Course[]{javaCore, javaEE, goStart, goQA},24);
 
-        SpecialStudent student6=new SpecialStudent("Vasya","Kulibin",002);
-        SpecialStudent student7=new SpecialStudent("Harvard",98,66540654540654056L);
-        SpecialStudent student8=new SpecialStudent(5465406546504654060L);
+        SpecialStudent student6 = new SpecialStudent("Vasya", "Kulibin", 002);
+        SpecialStudent student7 = new SpecialStudent("Harvard",new Course[]{html,goStart});
+        SpecialStudent student8 = new SpecialStudent("Georgiy","Chubarov",002,"Bursa",175,0564054031160153L,new Course[]{javaCore, javaEE, goStart, goQA},22,16541651065160165L);
     }
 }

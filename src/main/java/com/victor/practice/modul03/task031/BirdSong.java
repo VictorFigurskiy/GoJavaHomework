@@ -9,7 +9,7 @@ public class BirdSong {
         voody.sing();
 
         Bird sparrow = new Bird();
-        voody.sing();
+        sparrow.sing();
     }
 }
 
