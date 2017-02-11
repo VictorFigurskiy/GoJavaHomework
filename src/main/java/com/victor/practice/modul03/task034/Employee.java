@@ -5,7 +5,7 @@ package com.victor.practice.modul03.task034;
  */
 public class Employee {
     public static void main(String[] args) {
-        User person1 = new User("SHEVA",10000,5,"Google!!!",20000,"UAH");
+        User person1 = new User("SHEVA", 10000, 5, "Google!!!", 20000, "UAH");
         person1.show();
         System.out.println("\n+++++++++++++++++++++++\n");
 
