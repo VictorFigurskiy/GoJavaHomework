@@ -4,16 +4,16 @@ package com.victor.practice.modul03.task034;
  * Created by Sonikb on 08.02.2017.
  */
 public class User {
+    final static double COMMISION1 = 1.05;
+    final static double COMMISION2 = 1.1;
     private String name;
     private double balance;
     private int monthsOfEmployment;
     private String companyName;
     private int salary;
     private String currency;
-    final static double COMMISION1 = 1.05;
-    final static double COMMISION2 = 1.1;
 
-    public User(String name, int balance, int monthsOfEmployment, String companyName, int salary, String currency) {
+    public User(String name, double balance, int monthsOfEmployment, String companyName, int salary, String currency) {
         this.name = name;
         this.balance = balance;
         this.monthsOfEmployment = monthsOfEmployment;
@@ -24,36 +24,27 @@ public class User {
 
     void paySalary() {
         balance += salary;
+        System.out.println("Остаток на счету с учетом зарплаты: " + balance);
     }
 
-    void withdraw(int summ) {
-        double tmp = 0;
-        if (summ >= 1000) {
-            tmp = balance - (summ * COMMISION1);
+    void withdraw(double summ) {
+        if (summ >= 1000 && summ < balance) {
+            balance -= (summ * COMMISION2);
+            System.out.println("Вы сняли сумму " + summ + " +10% комиссии банка. Остаток на счете: " + balance);
         }
-        if (summ < 1000) {
-            tmp = balance - (summ * COMMISION2);
-        }
-        if (tmp < 0) {
-            System.out.println("\nСумма снятия превышает сумму баланса!");
-        } else balance = tmp;
+        if (summ < 1000 && summ < balance) {
+            balance -= (summ * COMMISION1);
+            System.out.println("Вы сняли сумму " + summ + " +5% комиссии банка. Остаток на счете: " + balance);
+        } else System.out.println("Сумма снятия превышает сумму баланса!");
     }
 
-    void show() {
-        String text = "Имя пользователя " + name + "\n";
-        text += "Компания " + companyName + '\n';
-        text += "Зарплата: " + salary + " " + currency + '\n';
-        text += "Остаток счета: " + balance + " " + currency + '\n';
-        text += "Месяцев отработал: " + monthsOfEmployment;
-        System.out.println(text);
-    }
-
-    int companyNameLenght() {
-        return companyName.length();
+    void companyNameLenght() {
+        System.out.println("Длинна имени компании " + companyName.length());
     }
 
     void monthIncreaser(int addMonth) {
         monthsOfEmployment += addMonth;
+        System.out.println("Количество месяцев " + addMonth);
     }
 
     public String getName() {
