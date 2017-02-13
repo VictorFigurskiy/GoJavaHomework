@@ -24,7 +24,6 @@ public class CollegeStudent extends Student {
     }
 
     public CollegeStudent() {
-        super();
     }
 
     public String getCollegeName() {

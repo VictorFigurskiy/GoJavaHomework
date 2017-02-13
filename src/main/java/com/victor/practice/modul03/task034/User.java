@@ -4,8 +4,8 @@ package com.victor.practice.modul03.task034;
  * Created by Sonikb on 08.02.2017.
  */
 public class User {
-    final static double COMMISION1 = 1.05;
-    final static double COMMISION2 = 1.1;
+    public final static double COMMISION1 = 1.05;
+    public final static double COMMISION2 = 1.1;
     private String name;
     private double balance;
     private int monthsOfEmployment;
@@ -22,12 +22,12 @@ public class User {
         this.currency = currency;
     }
 
-    void paySalary() {
+    public void paySalary() {
         balance += salary;
         System.out.println("Остаток на счету с учетом зарплаты: " + balance);
     }
 
-    void withdraw(double summ) {
+    public void withdraw(double summ) {
         if (summ >= 1000 && summ < balance) {
             balance -= (summ * COMMISION2);
             System.out.println("Вы сняли сумму " + summ + " +10% комиссии банка. Остаток на счете: " + balance);
@@ -38,11 +38,11 @@ public class User {
         } else System.out.println("Сумма снятия превышает сумму баланса!");
     }
 
-    void companyNameLenght() {
+    public void companyNameLenght() {
         System.out.println("Длинна имени компании " + companyName.length());
     }
 
-    void monthIncreaser(int addMonth) {
+    public void monthIncreaser(int addMonth) {
         monthsOfEmployment += addMonth;
         System.out.println("Количество месяцев " + addMonth);
     }

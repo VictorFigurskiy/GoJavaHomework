@@ -15,7 +15,7 @@ public class Bird {
         this.name = name;
     }
 
-    void sing() {
+    public void sing() {
         if (name != null) {
             System.out.println("I am " + name);
         }
