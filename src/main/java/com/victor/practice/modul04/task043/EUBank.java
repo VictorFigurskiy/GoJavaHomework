@@ -11,12 +11,17 @@ import static com.victor.practice.modul04.task042.Currency.USD;
  * Created by Sonikb on 15.02.2017.
  */
 public class EUBank extends Bank {
+    public final static int ONEPERSENT = 1;
+    public final static int TWOPERSENT = 2;
+    public final static int FOURPERSENT = 4;
+    public final static int FIVEPERSENT = 5;
+    public final static int SEVENPERSENT = 7;
+
 
     public EUBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
 
-    @Override
     public int getLimitOfWithdrawal() {
         int limits = 0;
         switch (getCurrency()) {
@@ -33,7 +38,6 @@ public class EUBank extends Bank {
         return limits;
     }
 
-    @Override
     public int getLimitOfFunding() {
         int limits = 0;
         switch (getCurrency()) {
@@ -50,7 +54,6 @@ public class EUBank extends Bank {
         return limits;
     }
 
-    @Override
     public int getMonthlyRate() {
         int monthlyRate = 1;
         switch (getCurrency()) {
@@ -58,24 +61,23 @@ public class EUBank extends Bank {
                 monthlyRate = 0;
                 break;
             case EUR:
-                monthlyRate = 1;
+                monthlyRate = ONEPERSENT;
                 break;
         }
         return monthlyRate;
     }
 
-    @Override
     public int getCommission(int summ) {
         int commision = 1;
         if (summ <= 1000 && getCurrency().equals(USD)) {
-            commision = 5;
+            commision = FIVEPERSENT;
         } else if (summ > 1000 && getCurrency().equals(USD)) {
-            commision = 7;
+            commision = SEVENPERSENT;
         }
         if (summ <= 1000 && getCurrency().equals(EUR)) {
-            commision = 2;
+            commision = TWOPERSENT;
         } else if (summ > 1000 && getCurrency().equals(EUR)) {
-            commision = 4;
+            commision = FOURPERSENT;
         }
         return commision;
     }

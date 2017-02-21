@@ -7,12 +7,17 @@ import com.victor.practice.modul04.task042.Currency;
  * Created by Sonikb on 15.02.2017.
  */
 public class USBank extends Bank {
+    public final static int ONEPERSENT = 1;
+    public final static int TWOPERSENT = 2;
+    public final static int FIVEPERSENT = 5;
+    public final static int SIXPERSENT = 6;
+    public final static int SEVENPERSENT = 7;
+    public final static int EIGHTPERSENT = 8;
 
     public USBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
 
-    @Override
     public int getLimitOfWithdrawal() {
         int limits = 0;
         switch (getCurrency()) {
@@ -29,13 +34,12 @@ public class USBank extends Bank {
         return limits;
     }
 
-    @Override
     public int getLimitOfFunding() {
         int limits = 0;
         switch (getCurrency()) {
             case USD:
                 System.out.println("Без лимитов на зачисление в " + getCurrency());
-                limits = 2147483647;
+                limits = Integer.MAX_VALUE;
                 break;
 
             case EUR:
@@ -46,36 +50,34 @@ public class USBank extends Bank {
         return limits;
     }
 
-    @Override
     public int getMonthlyRate() {
         int monthlyRate = 1;
         switch (getCurrency()) {
             case USD:
-                monthlyRate = 1;
+                monthlyRate = ONEPERSENT;
                 break;
             case EUR:
-                monthlyRate = 2;
+                monthlyRate = TWOPERSENT;
                 break;
         }
         return monthlyRate;
     }
 
-    @Override
     public int getCommission(int summ) {
         int commision = 1;
         switch (getCurrency()) {
             case USD:
                 if (summ <= 1000) {
-                    commision = 5;
+                    commision = FIVEPERSENT;
                 } else if (summ > 1000) {
-                    commision = 7;
+                    commision = SEVENPERSENT;
                 }
                 break;
             case EUR:
                 if (summ <= 1000) {
-                    commision = 6;
+                    commision = SIXPERSENT;
                 } else if (summ > 1000) {
-                    commision = 8;
+                    commision = EIGHTPERSENT;
                 }
                 break;
         }
