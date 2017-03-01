@@ -22,9 +22,10 @@ public class BookingComAPI implements API {
 
     public Room[] findRooms(int price, int persons, String city, String hotel) {
         Room[] resultFindArray = new Room[0];
+        Room room = new Room(0,price,persons,null,hotel,city);
 
         for (int i = 0; i < rooms.length; i++) {
-            if (rooms[i].getPrice() == price && rooms[i].getPersons() == persons && rooms[i].getCityName().equals(city) && rooms[i].getHotelName().equals(hotel)) {
+            if (rooms[i].equals(room) && rooms[i].getHotelName().equals(hotel)) {
                 resultFindArray = Room.addElementRoomArray(resultFindArray, rooms[i]);
             }
         }
