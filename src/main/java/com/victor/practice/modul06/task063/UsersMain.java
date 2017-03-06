@@ -1,12 +1,13 @@
-package com.victor.practice.modul06.task066;
+package com.victor.practice.modul06.task063;
 
-import com.victor.practice.modul06.task064.User;
-import com.victor.practice.modul06.task065.UserUtils;
+import com.victor.practice.modul06.task061.ArraysUtils;
+import com.victor.practice.modul06.task062.User;
+import com.victor.practice.modul06.task063.UserUtils;
 
 /**
  * Created by Sonikb on 05.03.2017.
  */
-public class Main {
+public class UsersMain {
     public static void main(String[] args) {
         User[] users = {new User(1, "John", "Snouden", 4000, 58000),
                 new User(2, "Li", "Cooper", 3000, 25000),
@@ -30,6 +31,7 @@ public class Main {
         for (User user : UserUtils.paySalaryToUsers(users)) {
             System.out.println(user);
         }
+        System.out.println(users[0].getBalance());
 
         for (long l : UserUtils.getUsersId(users)) {
             System.out.print(l + " ");
@@ -39,5 +41,6 @@ public class Main {
         for (User user : UserUtils.deleteEmptyUsers(users)) {
             System.out.println(user);
         }
+
     }
 }

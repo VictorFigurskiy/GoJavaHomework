@@ -1,6 +1,6 @@
-package com.victor.practice.modul06.task065;
+package com.victor.practice.modul06.task063;
 
-import com.victor.practice.modul06.task064.User;
+import com.victor.practice.modul06.task062.User;
 
 import java.util.Arrays;
 

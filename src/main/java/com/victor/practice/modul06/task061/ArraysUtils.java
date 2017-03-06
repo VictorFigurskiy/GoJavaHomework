@@ -6,6 +6,9 @@ import java.util.Arrays;
  * Created by Sonikb on 05.03.2017.
  */
 public final class ArraysUtils {
+    private ArraysUtils() {
+    }
+
     public static void sum(int[] array) {
         int sumOfArray = 0;
         for (int i = 0; i < array.length; i++) {
@@ -72,7 +75,7 @@ public final class ArraysUtils {
             resultArray[inkrement] = array[i];
             inkrement++;
         }
-        System.out.print("\nРеверс массива ");
+        System.out.print("Реверс массива ");
         return resultArray;
     }
 

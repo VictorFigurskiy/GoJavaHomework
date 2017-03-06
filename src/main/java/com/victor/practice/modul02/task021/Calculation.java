@@ -28,24 +28,6 @@ public class Calculation {
         calculation.modulus(arrayDouble);
         calculation.secondLargest(arrayInt);
         calculation.secondLargest(arrayDouble);
-
-        System.out.println("\nHomeWork 6");
-        ArraysUtils.sum(arrayInt);
-        ArraysUtils.min(arrayInt);
-        ArraysUtils.max(arrayInt);
-        ArraysUtils.maxPositive(arrayInt);
-        ArraysUtils.multiplication(arrayInt);
-        ArraysUtils.modulus(arrayInt);
-        ArraysUtils.secondLargest(arrayInt);
-
-        for (int i : ArraysUtils.reverse(arrayInt)) {
-            System.out.print(i + " ");
-        }
-
-        for (int i : ArraysUtils.findEvenElements(arrayInt)) {
-            System.out.print(i + " ");
-        }
-
     }
 
     public void sum(int[] array) {
