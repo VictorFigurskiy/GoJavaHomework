@@ -3,7 +3,7 @@ package com.victor.practice.modul06.task064;
 /**
  * Created by Sonikb on 06.03.2017.
  */
-public final class CitizenFactory {
+public class CitizenFactory {
     private static class EnglishMan implements Citizen {
         public void sayHello() {
             System.out.println("Hello");
