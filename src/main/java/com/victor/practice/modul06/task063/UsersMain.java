@@ -31,7 +31,7 @@ public class UsersMain {
         for (User user : UserUtils.paySalaryToUsers(users)) {
             System.out.println(user);
         }
-        System.out.println(users[0].getBalance());
+        System.out.println("Test immutable "+users[0].getBalance());
 
         for (long l : UserUtils.getUsersId(users)) {
             System.out.print(l + " ");

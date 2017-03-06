@@ -40,11 +40,12 @@ public class UserUtils {
     }
 
     public static final User[] paySalaryToUsers(User[] users) {
+        User[] newUsersArray = new User[users.length];
         for (int i = 0; i < users.length; i++) {
-            users[i].setBalance(users[i].getBalance() + users[i].getSalary());
+            newUsersArray[i] = new User(users[i].getId(), users[i].getFirstName(),users[i].getLastName(),users[i].getSalary(),users[i].getBalance()+users[i].getSalary());
         }
         System.out.println("Выплата зарплаты всем сотрудникам");
-        return users;
+        return newUsersArray;
     }
 
     public static final long[] getUsersId(User[] users) {
