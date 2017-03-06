@@ -1,5 +1,7 @@
 package com.victor.practice.modul02.task021;
 
+import com.victor.practice.modul06.task061.ArraysUtils;
+
 import java.util.Arrays;
 
 /**
@@ -26,6 +28,24 @@ public class Calculation {
         calculation.modulus(arrayDouble);
         calculation.secondLargest(arrayInt);
         calculation.secondLargest(arrayDouble);
+
+        System.out.println("\nHomeWork 6");
+        ArraysUtils.sum(arrayInt);
+        ArraysUtils.min(arrayInt);
+        ArraysUtils.max(arrayInt);
+        ArraysUtils.maxPositive(arrayInt);
+        ArraysUtils.multiplication(arrayInt);
+        ArraysUtils.modulus(arrayInt);
+        ArraysUtils.secondLargest(arrayInt);
+
+        for (int i : ArraysUtils.reverse(arrayInt)) {
+            System.out.print(i + " ");
+        }
+
+        for (int i : ArraysUtils.findEvenElements(arrayInt)) {
+            System.out.print(i + " ");
+        }
+
     }
 
     public void sum(int[] array) {
@@ -135,12 +155,14 @@ public class Calculation {
     }
 
     public void secondLargest(int[] array) {
-        Arrays.sort(array);
-        System.out.println("Второй по величине элемент массива целых чисел = " + array[array.length - 2]);
+        int[] newArray = array.clone();
+        Arrays.sort(newArray);
+        System.out.println("Второй по величине элемент массива целых чисел = " + newArray[newArray.length - 2]);
     }
 
     public void secondLargest(double[] array) {
-        Arrays.sort(array);
-        System.out.println("Второй по величине элемент массива дробных чисел = " + array[array.length - 2]);
+        double[] newArray = array.clone();
+        Arrays.sort(newArray);
+        System.out.println("Второй по величине элемент массива дробных чисел = " + newArray[newArray.length - 2]);
     }
 }
