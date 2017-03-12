@@ -7,7 +7,10 @@ import java.util.Arrays;
 /**
  * Created by Sonikb on 05.03.2017.
  */
-public class UserUtils {
+public final class UserUtils {
+    private UserUtils() {
+    }
+
     public static User[] uniqueUsers(User[] users) {
         User[] uniqueArray = new User[0];
         User[] clonedArray = users.clone();
