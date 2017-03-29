@@ -52,7 +52,7 @@ public class DataBase implements DAO {
 
     @Override
     public String toString() {
-        return "DataBase{" +
+        return "ManageSystem{" +
                 "roomsDB=" + Arrays.toString(roomsDB) +
                 '}';
     }

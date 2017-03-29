@@ -122,12 +122,12 @@ public class Main {
     public static void splitOnOrdersListByCity(List<Order> list) {
         Set<Order> newOrderSet = new TreeSet<Order>(new Comparator<Order>() {
             public int compare(Order o1, Order o2) {
-                return Integer.valueOf(o1.getUser().getCity().compareTo(o2.getUser().getCity()));
+                return o1.getUser().getCity().compareTo(o2.getUser().getCity());
             }
         });
         newOrderSet.addAll(list);
         Iterator<Order> iterator = newOrderSet.iterator();
-        System.out.println("\nМетод для разделения на отдельные списки:");
+        System.out.println("\nМетод для разделения на отдельные списки по городам:");
         while (iterator.hasNext()) {
             Order order = iterator.next();
             for (Order order1 : createNewAListOrders(order)) {
