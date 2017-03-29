@@ -10,6 +10,8 @@ import java.util.*;
  */
 public class ManageSystem implements IManageSystem<Food> {
 
+    private final double ZERO = 0.0;
+
     private Map<Food, Double> dataBase = new LinkedHashMap<Food, Double>();
 
     public Food save(Food obj, double price) {
@@ -19,13 +21,8 @@ public class ManageSystem implements IManageSystem<Food> {
 
     public Food save(Food obj) {
         if (dataBase.containsKey(obj)) {
-            Set<Food> foods = dataBase.keySet();
-            for (Food food : foods) {
-                if (food.equals(obj)) {
-                    return food;
-                }
-            }
-        } else dataBase.put(obj, 0.0);
+            return obj;
+        } else dataBase.put(obj, ZERO);
         return obj;
     }
 
@@ -60,11 +57,7 @@ public class ManageSystem implements IManageSystem<Food> {
     }
 
     public Set getProducts() {
-        Set<Food> products = new HashSet<Food>();
-        for (Food food : dataBase.keySet()) {
-            products.add(food);
-        }
-        return products;
+        return dataBase.keySet();
     }
 
     public List<Double> getPrices() {
@@ -95,6 +88,5 @@ public class ManageSystem implements IManageSystem<Food> {
         for (Object o : list) {
             System.out.println(o);
         }
-        System.out.println(list.get(0));
     }
 }
