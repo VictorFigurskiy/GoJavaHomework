@@ -90,11 +90,9 @@ public class Main {
 
     public static void splitOnSeparateOrdersListByCity(List<Order> orderList) {
         System.out.println("\nМетод для разделения на отдельные списки по городам:");
-        List<String> citys = new ArrayList<>();
-        for (Order order : orderList) {
-            citys.add(order.getUser().getCity());
-        }
-        for (String city : citys) {
+        HashSet<String> cities = orderList.stream().map(order -> order.getUser().getCity()).collect(Collectors.toCollection(HashSet::new));
+        System.out.println(cities);
+        for (String city : cities) {
             System.out.println("Отдельный лист для " + city+": ");
             orderList.stream().filter(order -> order.getUser().getCity().equals(city)).collect(Collectors.toList()).forEach(System.out::println);
         }
