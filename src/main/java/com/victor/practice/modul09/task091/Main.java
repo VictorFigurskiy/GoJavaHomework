@@ -48,18 +48,19 @@ public class Main {
         splitOnSeparateOrdersListByCity(ordersList);
         findByName(ordersList, "Sendler");
         removeOrdersInUSD(ordersList);
-
     }
 
     public static void sortListByPriceDown(List<Order> orderList) {
         System.out.println("\nСортировка за ценой заказа по убыванию:");
-        orderList.stream().sorted((o1, o2) -> Integer.compare(o1.getPrice(), o2.getPrice())).collect(Collectors.toList()).forEach(System.out::println);
+        orderList.stream().sorted((o1, o2) -> Integer.compare(o1.getPrice(), o2.getPrice())).
+                collect(Collectors.toList()).forEach(System.out::println);
     }
 
     public static void sortListByPriceUpAndCity(List<Order> orderList) {
         System.out.println("\nСортировка за ценой заказа по возрастанию и за городом пользователя:");
         orderList.stream().sorted((o1, o2) -> o1.getUser().getCity().compareTo(o2.getUser().getCity())).
-                sorted((o1, o2) -> Integer.valueOf(o1.getPrice()).compareTo(o2.getPrice())).collect(Collectors.toCollection(ArrayList<Order>::new)).forEach(System.out::println);
+                sorted((o1, o2) -> Integer.valueOf(o1.getPrice()).compareTo(o2.getPrice())).
+                collect(Collectors.toCollection(ArrayList<Order>::new)).forEach(System.out::println);
     }
 
     public static void sortByNameAndShopIDAndCity(List<Order> orderList) {
@@ -76,7 +77,7 @@ public class Main {
 
     public static void removeElemWithPriceLowerX(List<Order> ordersList, Integer x) {
         System.out.println("\nУдаление объектов, где цена меньше " + x + ":");
-        ordersList.stream().filter(order -> order.getPrice() > x).collect(Collectors.toList()).forEach(System.out::println);
+        ordersList.stream().filter(order -> x != null && order.getPrice() > x).collect(Collectors.toList()).forEach(System.out::println);
     }
 
     public static void splitOrdersOn2ListsByCurrency(List<Order> orderList) {
@@ -89,14 +90,20 @@ public class Main {
 
     public static void splitOnSeparateOrdersListByCity(List<Order> orderList) {
         System.out.println("\nМетод для разделения на отдельные списки по городам:");
-        ArrayList<Order> sortedListByCity = orderList.stream().sorted(Comparator.comparing(o -> o.getUser().getCity())).collect(Collectors.toCollection(ArrayList::new));
-        
+        List<String> citys = new ArrayList<>();
+        for (Order order : orderList) {
+            citys.add(order.getUser().getCity());
+        }
+        for (String city : citys) {
+            System.out.println("Отдельный лист для " + city+": ");
+            orderList.stream().filter(order -> order.getUser().getCity().equals(city)).collect(Collectors.toList()).forEach(System.out::println);
+        }
     }
 
     public static void findByName(List<Order> ordersList, String name) {
         System.out.println("\nПроверяем содержыт ли список фамилию " + name);
         System.out.println(ordersList.stream().anyMatch(order -> order.getUser().getLastName().equals(name)));
-        ordersList.stream().filter(order -> order.getUser().getLastName().equals(name)).forEach(System.out::println);
+        ordersList.stream().filter(order -> name != null && order.getUser().getLastName().equals(name)).forEach(System.out::println);
     }
 
     public static void removeOrdersInUSD(List<Order> orderList) {
