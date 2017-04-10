@@ -22,7 +22,7 @@ public class TroubleClass {
         try {
             test.x();
         }catch (MyTestExceptionPack m){
-            System.err.println(m.fillInStackTrace());
+            m.printStackTrace();
         }
     }
 }
