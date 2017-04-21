@@ -12,7 +12,7 @@ public class Task3 {
         Map<String, String> map = new HashMap<>();
         map.put("secret", "******");
         map.put("permission", "*******");
-        map.put("information","********");
+        map.put("information", "********");
         try {
             System.out.println(fileContentMerger(map));
         } catch (IOException e) {
@@ -22,12 +22,15 @@ public class Task3 {
 
     public static String fileContentMerger(Map<String, String> map) throws IOException {
         String str;
-        String result="";
+        String result = "";
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("src/main/java/com/victor/practice/modul11/task113/task3.txt"), "UTF-8"));
-            while ((str = br.readLine()) != null){
+            while ((str = br.readLine()) != null) {
                 System.out.println(str);
-                result += str.replace("secret",map.get("secret")).replace("permission",map.get("permission")).replace("information",map.get("information")).concat("\n");
+                for (String s : map.keySet()) {
+                    str = str.replace(s, map.get(s));
+                }
+                result += str + "\n";
             }
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("src/main/java/com/victor/practice/modul11/task113/task3.txt", true), "UTF-8"));
             bw.newLine();

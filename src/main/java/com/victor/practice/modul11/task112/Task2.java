@@ -28,7 +28,10 @@ public class Task2 {
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("src/main/java/com/victor/practice/modul11/task112/task2.txt"), "UTF-8"));
             while ((str = br.readLine()) != null) {
                 System.out.println(str);
-                result += str.replace(" is ", map.get(" is ")).replace(" do not", map.get(" do not")).replace("...", map.get("...")).concat("\n");
+                for (String s : map.keySet()) {
+                    str = str.replace(s, map.get(s));
+                }
+                result += str + "\n";
             }
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("src/main/java/com/victor/practice/modul11/task112/task2.txt", false), "UTF-8"));
             bw.write(result);
