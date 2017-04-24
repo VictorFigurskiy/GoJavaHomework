@@ -19,8 +19,12 @@ public class Task4 {
         String str;
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("D:/JAVA/GoIT Study/JavaCoreGoIT/GoJavaHomework/src/main/java/com/victor/practice/modul11/task114/task4.txt"), "UTF-8"))) {
             while ((str = br.readLine()) != null) {
-                if (str.contains(word)) {
-                    count++;
+                String[] split = str.split(" ");
+                for (int i = 0; i < split.length; i++) {
+                    if (split[i].contains(word)){
+                        count++;
+                    }
+
                 }
             }
         } catch (IOException e) {
@@ -35,8 +39,9 @@ public class Task4 {
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("D:/JAVA/GoIT Study/JavaCoreGoIT/GoJavaHomework/src/main/java/com/victor/practice/modul11/task114/task4.txt"), "UTF-8"));
             while ((str = br.readLine()) != null) {
-                if (str.contains(word)) {
-                    count++;
+                String[] split = str.split(" ");
+                for (String s : split) {
+                    if (s.contains(word))count++;
                 }
             }
             br.close();
